@@ -23,6 +23,7 @@ public class YQLService {
 	HttpAdapter httpAdapter;
 
 	final private ObjectMapper objectMapper = new ObjectMapper();
+	final private int MAX_RESULTS = 40;
 
 	public YQLService() {
 		objectMapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
@@ -40,7 +41,7 @@ public class YQLService {
 			yQLResultQueryField = objectMapper.readValue(yqlResponse,
 					YQLResponse.class);
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+			return Collections.emptyList();
 		}
 		
 		Results results = yQLResultQueryField.getQuery().getResults();
@@ -53,7 +54,7 @@ public class YQLService {
 	public List<Event> getEventsByLocation(String areaName) {
 		String yqlUrl;
 		try {
-			yqlUrl = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20upcoming.events.bestinplace%20where%20woeid%20in%20(select%20woeid%20from%20geo.places%20where%20text%3D%22"
+			yqlUrl = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20upcoming.events.bestinplace(" + MAX_RESULTS + ")%20where%20woeid%20in%20(select%20woeid%20from%20geo.places%20where%20text%3D%22"
 					+ URLEncoder.encode(areaName, "UTF-8") + "%22%20limit%201)&format=json&diagnostics=true";
 		} catch (UnsupportedEncodingException e1) {
 			return Collections.emptyList();
@@ -68,7 +69,7 @@ public class YQLService {
 			yQLResultQueryField = objectMapper.readValue(yqlResponse,
 					YQLResponse.class);
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+			return Collections.emptyList();
 		}
 
 		Results results = yQLResultQueryField.getQuery().getResults();

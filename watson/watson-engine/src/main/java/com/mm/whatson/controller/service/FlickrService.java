@@ -44,7 +44,7 @@ public class FlickrService {
 			yQLResultQueryField = objectMapper.readValue(yqlResponse,
 					YQLResponse.class);
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+			return null;
 		}
 		
 		Results results = yQLResultQueryField.getQuery().getResults();
