@@ -1,0 +1,72 @@
+package com.mm.whatson.controller.service;
+
+import java.util.Collections;
+import java.util.List;
+
+import org.codehaus.jackson.JsonParser;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.mm.whatson.controller.domain.Category;
+import com.mm.whatson.controller.domain.Event;
+import com.mm.whatson.controller.domain.Results;
+import com.mm.whatson.controller.domain.YQLResponse;
+import com.mm.whatson.controller.httpclient.HttpAdapter;
+
+@Service
+public class YQLService {
+
+	@Autowired
+	HttpAdapter httpAdapter;
+
+	final private ObjectMapper objectMapper = new ObjectMapper();
+
+	public YQLService() {
+		objectMapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+		objectMapper.configure(JsonParser.Feature.ALLOW_COMMENTS, true);
+	}
+
+	public List<Category> getCategoriesByName(String categoryName) {
+		String yqlUrl = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20upcoming.category%20where%20name%20like%20%22%25" + categoryName + "%25%22%20or%20description%20like%20%22%25" + categoryName + "%25%22&format=json";
+		String yqlResponse = httpAdapter.sendRequest(yqlUrl);
+		YQLResponse yQLResultQueryField = null;
+
+		try {
+			System.out.println(yqlUrl);
+			System.out.println(yqlResponse);
+			yQLResultQueryField = objectMapper.readValue(yqlResponse,
+					YQLResponse.class);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
+		Results results = yQLResultQueryField.getQuery().getResults();
+		if (results != null) {
+			return results.getCategory();
+		}
+		return Collections.emptyList();
+	}
+
+	public List<Event> getEventsByLocation(String areaName) {
+		String yqlUrl = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20upcoming.events.bestinplace%20where%20woeid%20in%20(select%20woeid%20from%20geo.places%20where%20text%3D%22"
+				+ areaName + "%22%20limit%201)&format=json&diagnostics=true";
+
+		String yqlResponse = httpAdapter.sendRequest(yqlUrl);
+		YQLResponse yQLResultQueryField = null;
+
+		try {
+			System.out.println(yqlResponse);
+			yQLResultQueryField = objectMapper.readValue(yqlResponse,
+					YQLResponse.class);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+
+		Results results = yQLResultQueryField.getQuery().getResults();
+		if (results != null) {
+			return results.getEvent();
+		}
+		return Collections.emptyList();
+	}
+}
