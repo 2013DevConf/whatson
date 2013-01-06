@@ -23,18 +23,29 @@ public class WhatsOnController {
 	@Autowired
 	private AccessTokenService accessTokenService;
 	
+	@Autowired
+	private SpeechToTextService speechToTextService;
+	
 	@RequestMapping(value = "")
 	@ResponseBody
 	public Response getWhatson(final Request request) {
 		return queryService.query(request);
 	}
 	
-	@RequestMapping(value = "translate")
+	@RequestMapping(value = "token")
 	@ResponseBody
-	public AttSecurityToken getTranslation(final Request request) {
+	public AttSecurityToken getToken(final Request request) {
 		AttSecurityToken token = accessTokenService.getToken();
 		System.out.println(token.getAccess_token());
 		return token;
+	}
+	@RequestMapping(value = "translate")
+	@ResponseBody
+	public Object getTranslation(final Request request) {
+		AttSecurityToken token = accessTokenService.getToken();
+		Object obj = speechToTextService.getText(token);
+		System.out.println(obj);
+		return obj;
 	}
 	
 }
