@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mm.whatson.controller.service.AccessTokenService;
 import com.mm.whatson.controller.service.QueryService;
+import com.mm.whatson.controller.service.SpeechToTextService;
 import com.mm.whatson.json.AttSecurityToken;
 
 /**
