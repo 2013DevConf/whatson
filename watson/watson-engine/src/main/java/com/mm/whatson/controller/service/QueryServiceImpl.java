@@ -31,9 +31,11 @@ public class QueryServiceImpl implements QueryService {
 	public Response query(Request request) {
 		Response response = new Response();
 
-		String areaName = reverseGeoLookupService.sendRevereseGeoRequest(
-				request.getLatitude(), request.getLongitude());
-
+		String areaName = request.getLocation();
+		if (areaName == null) {
+			areaName = reverseGeoLookupService.sendRevereseGeoRequest(request.getLatitude(), request.getLongitude());
+		}
+		
 		List<Category> categories = yqlService.getCategoriesByName(request.getConstraint());
 		List<Event> eventsInArea = yqlService.getEventsByLocation(areaName);
 		List<Event> matchingEvents = filterEvents(eventsInArea, request.getConstraint(), categories);

@@ -5,6 +5,7 @@ public class Request {
 	String latitude = null;
 	String longitude = null;
 	String radius = null;
+	String location = null;
 
 	public String getConstraint() {
 		return constraint;
@@ -39,5 +40,14 @@ public class Request {
 
 	public void setRadius(String radius) {
 		this.radius = radius;
-	}	
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
 }
