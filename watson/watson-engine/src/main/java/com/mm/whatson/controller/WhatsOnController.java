@@ -33,14 +33,14 @@ public class WhatsOnController {
 		return queryService.query(request);
 	}
 	
-	@RequestMapping(value = "token")
+	@RequestMapping(value = "/token")
 	@ResponseBody
 	public AttSecurityToken getToken(final Request request) {
 		AttSecurityToken token = accessTokenService.getToken();
 		System.out.println(token.getAccess_token());
 		return token;
 	}
-	@RequestMapping(value = "translate")
+	@RequestMapping(value = "/translate")
 	@ResponseBody
 	public Object getTranslation(final Request request) {
 		AttSecurityToken token = accessTokenService.getToken();
