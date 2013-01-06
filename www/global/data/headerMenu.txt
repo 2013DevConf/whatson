@@ -1,0 +1,58 @@
+{
+    "headerMenu": "Shop for",
+    "topTasks1": [
+        {
+            "title": "Wireless",
+            "href": "http://www.m.att.com/shopmobile"
+        },
+        {
+            "title": "Home Phone",
+            "href": "http://www.att.com/shop/home-phone.html"
+        },
+        {
+            "title": "Internet",
+            "href": "http://www.m.att.com/internet.html"
+        },
+        {
+            "title": "Digital TV",
+            "href": "http://www.att.com/shop/tv.html"
+        },
+        {
+            "title": "U-verse",
+            "href": "http://www.att.com/shop/u-verse.html"
+        }
+    ],
+    "myatt": "myAT&amp;T",
+    "topTasks2": [
+        {
+            "title": "Pay my bill, check usage",
+            "href": "http://m.att.com/myatt"
+        },
+        {
+            "title": "Upgrade my device",
+            "href": "https://www.att.com/phoneupgrade/index.jsp?mobile=true"
+        }
+    ],
+    "support": "Help &amp; Support",
+    "topTasks3": [
+        {
+            "title": "Support",
+            "href": "http: //www.m.att.com/esupport"
+        },
+        {
+            "title": "AT&amp;TCommunities",
+            "href": "http: //www.forums.att.com"
+        }
+    ],
+    "pivots": "",
+    "pivotTasks1": [
+        {
+            "title": "Findastore",
+            "href": "https: //m.att.com/find-a-store.m.html"
+        },
+        {
+            "title": "Contactus",
+            "href": "https: //m.att.com/contact.m.html"
+        }
+    ]
+}

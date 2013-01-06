@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<meta id="viewport-tag" name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="address=no" />
+<link rel="stylesheet" href="global/styles/attMobileThemes.m.css"/>
+<script type="text/javascript" src="global/scripts/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="global/scripts/jquery.mobile-1.0.1.min.js"></script>
+<link href="global/styles/whatsonStyles.css" rel="stylesheet" type="text/css"/>
+<script src="js/cordova-2.2.0.js"></script> 
+<script type="text/javascript" charset="utf-8">
+    //Comment this line if running with browser
+    document.addEventListener("deviceready", function () { onDeviceReady(); }, false);
+
+    //Comment this line if running with phonegap
+    window.onload = function (e) { onDeviceReady(); };
+
+    function showPageLoadingMessage(msg) {
+	message = msg || "Loading...";
+	$.mobile.loading('show', { html: "<div><span class='ui-icon ui-icon-loading'></span><h1>" + message + "</h1></div>" });
+    };
+</script>
+<style type="text/css">
+#index {position: relative; min-height: 100%; height:100%;}
+#footer {position: absolute;bottom: 0; width:100%;}
+</style>
+<title>Items list</title>
+</head>
+<body>
+    <div data-role="page" id="index" data-backbtn="false" class="mainContent">
+        <!-- BEGIN Web Header -->
+        <header id="mainHeader" data-role="header" data-backbtn="false">
+          <div id="logoHolder">
+	     <a rel="external" data-transition="slide" class="logo fLF indentIt ui-link" id="logo" href="whatson.html">at&amp;t logo</a>
+	     <a rel="external" data-transition="slide" class="logoHeader iconNavH fLF indentIt ui-link" id="pageHeader" href="shop-home.m.html">
+              <h1>WhatsOn</h1>
+            </a>
+            <div class="clearIt"> </div>
+          </div>
+          <div class="clearIt"> </div>
+        </header>
+        <!-- END Web Header -->
+        <!--BEGIN Content-->
+        <div data-role="content" class="ui-content content_div">
+	 <div class="p15">
+	    <h2 id="pageHead" class="fLF fs18">[Query here]</h2>
+	    <span class="fRT gray6 boldIt pT5"><span id="">near</span> <span id="" class="blue4">[Location]</span></span>
+	    <div class="clearIt"></div>
+	  </div>
+	  <div class="dividerBefore"></div>	
+		 <ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+                    <li id="AnyID" class="listNav2">
+		     <a id="any1" href="item-detail.html" data-transition="slidedown" rel="external">
+                      <div id="someIcon" class="fLF"><img id="product01Image" class="imgGridThumb" src="global/images/test011.png" alt="Movie" style="width:80px; height:100px;"/> </div>
+                      <div id="smCopy" class="fLF mL10 w50p">
+                        <pre class="m0 fs16 ffAHSans h20"><h3 class="fs16 mT5"><span id="">Title</h3></pre>
+                        <p id="TMessage3">[ShowTime]</p>
+			<p id="TMessage4">[Location]</p>
+                      </div>
+		      <div class="fRT pT40 orange2 w20p" valign="middle"><span>9.99</span></div>
+                      <div class="clearIt"></div>
+                      </a>
+		    </li>
+                    <li id="AnyID" class="listNav2"> <a id="any1" href="#" data-transition="slidedown" rel="external">
+                      <div id="someIcon" class="fLF"><img id="product01Image" class="imgGridThumb" src="global/images/test021.png" alt="Movie" style="width:80px; height:100px;"/> </div>
+                      <div id="smCopy" class="fLF mL10 w50p">
+                        <pre class="m0 fs16 ffAHSans h20"><h3 class="fs16 mT5"><span id="">Title</h3></pre>
+                        <p id="TMessage3">[ShowTime]</p>
+			<p id="TMessage4">[Location]</p>
+		      </div>
+		      <div class="fRT pT40 orange2 w20p" valign="middle"><span>9.99</span></div>
+                      <div class="clearIt"></div>
+                      </a> </li>
+                    <li id="AnyID" class="listNav2"> <a id="any1" href="#" data-transition="slidedown" rel="external">
+                      <div id="someIcon" class="fLF"><img id="product01Image" class="imgGridThumb" src="global/images/test031.png" alt="Movie" style="width:80px; height:100px;"/> </div>
+                      <div id="smCopy" class="fLF mL10 w50p">
+                        <pre class="m0 fs16 ffAHSans h20"><h3 class="fs16 mT5"><span id="">Title</h3></pre>
+                        <p id="TMessage3">[ShowTime]</p>
+			<p id="TMessage4">[Location]</p>
+		      </div>
+		      <div class="fRT pT40 orange2 w20p" valign="middle"><span>9.99</span></div>                      
+		      <div class="clearIt"></div>
+                      </a> </li>
+                  </ul>
+        </div>
+        <!-- Footer Start -->
+  	<div style="height:120px;"><!-- Match same height as the footer --></div>
+        <div id="footer">
+            <footer>
+              <div id="footerBtm">
+                <ul>
+                  <li><a href="http://www.att.com/gen-mobile/privacy-policy?pid=2506" data-transition="slide">PRIVACY</a></li>
+                  <li><a href="http://www.att.com/gen-mobile/general?pid=11561" data-transition="slide">TERMS OF USE</a></li>
+                </ul>
+                <p class="clearIt wrapTxt fs10 white">
+                    <a href="http://www.att.com/gen-mobile/privacy-policy?pid=2587">&copy; 2012 AT&amp;T Intellectual Property.</a> 
+                    <span class="gray6">All rights reserved.</span>
+                </p>
+              </div>
+            </footer>
+        </div>
+        <!-- Footer End -->
+    </div>
+	<!--END Content-->
+    <!-- Start: Code for Dialog for this page-->
+    <!-- End:  Code for Dialog for this page -->
+	<script type="text/javascript" src="global/scripts/sandbox.js"></script>
+</body>
+</html>

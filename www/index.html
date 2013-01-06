@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<link rel="stylesheet" href="global/styles/attMobileThemes.m.css"/>
+<script type="text/javascript" src="global/scripts/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="global/scripts/jquery.mobile-1.0.1.min.js"></script>
+<script type="text/javascript" src="global/getGeo.js"></script>
+<link href="global/styles/whatsonStyles.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+#index {position: relative;	min-height: 100%; height:100%;}
+#footer {position: absolute;bottom: 0; width:100%;}
+</style>
+    <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="json2.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Called when capture operation is finished
+    //
+    function captureSuccess(mediaFiles) {
+        var i, len;
+        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+            uploadFile(mediaFiles[i]);
+        }       
+    }
+
+    // Called if something bad happens.
+    // 
+    function captureError(error) {
+        var msg = 'An error occurred during capture: ' + error.code;
+        navigator.notification.alert(msg, null, 'Uh oh!');
+    }
+
+    // A button will call this function
+    //
+    function captureAudio() {
+        // Launch device audio recording application, 
+        // allowing user to capture up to 2 audio clips
+        navigator.device.capture.captureAudio(captureSuccess, captureError, {limit: 2});
+    }
+
+    // Upload files to server
+    function uploadFile(mediaFile) {
+        var ft = new FileTransfer(),
+            path = mediaFile.fullPath,
+            name = mediaFile.name;
+
+        ft.upload(path,
+            "http://my.domain.com/upload.php",
+            function(result) {
+                console.log('Upload success: ' + result.responseCode);
+                console.log(result.bytesSent + ' bytes sent');
+            },
+            function(error) {
+                console.log('Error uploading file ' + path + ': ' + error.code);
+            },
+            { fileName: name });   
+    }
+
+    </script>
+<title>Whatson Home Page</title>
+
+</head>
+<body>
+    <div data-role="page" id="index" data-backbtn="false" class="mainContent">
+        <!--BEGIN Content-->
+        <div data-role="content" class="ui-content content_div">
+	 <div class="pT20 pB20 taCE">
+	  <h2 class="fs30">What's on</h2>
+	  <p class="fs16">Las Vegas, NV</p>
+	 </div>
+	 <div id="speachSubmit" class="p15">
+<!--	  <a id="getLocation" href="#GetSpeachDialog" data-role="button" data-theme="d" data-inline="true" class="w100p" data-transition="pop">-->
+  <a id="getLocation" data-role="button" data-theme="d" data-inline="true" class="w100p" onclick="captureAudio();">
+  
+	   <img src="global/images/microphone.png" height="114" width="62px" title="" alt=""><br/>
+	    <span class="blue5">Tap and say, e.g. movies</span>
+	  </a>
+	 </div>
+        </div>
+        <!-- Footer Start -->
+        <div id="footer">
+            <footer>
+              <div id="footerBtm">
+                <ul>
+                  <li><a href="http://www.att.com/gen-mobile/privacy-policy?pid=2506" data-transition="slide">PRIVACY</a></li>
+                  <li><a href="http://www.att.com/gen-mobile/general?pid=11561" data-transition="slide">TERMS OF USE</a></li>
+                </ul>
+                <p class="clearIt wrapTxt fs10 white">
+                    <a href="http://www.att.com/gen-mobile/privacy-policy?pid=2587">&copy; 2012 AT&amp;T Intellectual Property.</a> 
+                    <span class="gray6">All rights reserved.</span>
+                </p>
+              </div>
+            </footer>
+        </div>
+        <!-- Footer End -->
+    </div>
+	<!--END Content-->
+    <!-- Start: Code for Dialog for this page-->
+    <!-- Start Speach Dialog -->
+    <div data-role="dialog" id="GetSpeachDialog">
+      <div data-role="content" class="w90p" style="height:290px; min-height:390px;">
+	 <div id="speachSubmit">
+	  <a id="paymentContinue" href="" data-role="button" data-theme="d" data-inline="true" class="w100p" data-transition="slide">
+	   <p class="dividerAfter m0 p0 pB10">Say what you are looking for?</p>
+	   <img src="global/images/microphone.png" height="114" width="62px" title="" alt="" class="pT10"><br/>
+	    <span class="blue5">Tap and say, e.g. movies</span>
+	  </a>
+	 </div>
+      </div>
+    </div>    
+    
+<!-- End Alert Dialog --> <script type="text/javascript" src="../global/scripts/sandbox.js"></script> 
+<script type="text/javascript">
+    /* for pagination Code  */
+    $('[id^="galleryProgress"]').click(function () {
+      $('[id^="galleryProgress"]').removeClass("ui-icon-radio-on");
+      $('[id^="galleryProgress"]').addClass("ui-icon-radio-off");
+      $(this).addClass("ui-icon-radio-on");
+    }); 
+
+    $("#showProgress").click(function() {
+      var cwidthValue = 5;
+      while (cwidthValue <=100) {
+        var widthValue = cwidthValue+'%';
+        $("#pBarSubSet").css("width", widthValue );
+        var cwidthValue = cwidthValue+ 1;
+      }
+    });
+
+    $(document).ready(function(){
+      $("#cardNameImg").click(function(){
+        $(this).prev("input").val("");
+      });
+      /* for help icon Code*/
+      $('#qIcon, #iconCCV').click(function() {
+        if ($('#iconCCV').hasClass('dNO'))
+        {
+          $('#iconCCV').removeClass('dNO').addClass('dBL');
+        }
+        else
+        {
+          $('#iconCCV').removeClass('dBL').addClass('dNO');
+        }
+      });
+    });   
+    
+    localStorage.clear();
+    var primaryURL = 'index.html';
+      var altURL = 'get-location.html';
+    
+    $('#homeFindStoreLink').click(function() {
+      getGeo();
+    });
+    
+  </script>
+</body>
+</html>

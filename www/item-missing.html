@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<meta id="viewport-tag" name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="address=no" />
+<link rel="stylesheet" href="global/styles/attMobileThemes.m.css"/>
+<script type="text/javascript" src="global/scripts/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="global/scripts/jquery.mobile-1.0.1.min.js"></script>
+<link href="global/styles/whatsonStyles.css" rel="stylesheet" type="text/css"/>
+<script src="js/cordova-2.2.0.js"></script> 
+<script type="text/javascript" charset="utf-8">
+    //Comment this line if running with browser
+    document.addEventListener("deviceready", function () { onDeviceReady(); }, false);
+
+    //Comment this line if running with phonegap
+    window.onload = function (e) { onDeviceReady(); };
+
+    function showPageLoadingMessage(msg) {
+	message = msg || "Loading...";
+	$.mobile.loading('show', { html: "<div><span class='ui-icon ui-icon-loading'></span><h1>" + message + "</h1></div>" });
+    };
+</script>
+<style type="text/css">
+#index {position: relative; min-height: 100%; height:100%;}
+#footer {position: absolute;bottom: 0; width:100%;}
+</style>
+<title>Items misssing</title>
+</head>
+<body>
+    <div data-role="page" id="index" data-backbtn="false" class="mainContent">
+        <!-- BEGIN Web Header -->
+        <header id="mainHeader" data-role="header" data-backbtn="false">
+          <div id="logoHolder">
+	     <a rel="external" data-transition="slide" class="logo fLF indentIt ui-link" id="logo" href="whatson.html">at&amp;t logo</a>
+	     <a rel="external" data-transition="slide" class="logoHeader iconNavH fLF indentIt ui-link" id="pageHeader" href="index.html">
+              <h1>WhatsOn</h1>
+            </a>
+            <div class="clearIt"> </div>
+          </div>
+          <div class="clearIt"> </div>
+        </header>
+        <!-- END Web Header -->
+        <!--BEGIN Content-->
+        <div data-role="content" class="ui-content content_div">
+	   <p class="taCE fs30 boldIt pT40">Sorry :( </p>
+	   <p class="taCE fs14 wrapTxt pT15">
+	     There is absolutely nothing going on in the selected area...
+	   </p>
+        </div>
+        <!-- Footer Start -->
+  	<div style="height:120px;"><!-- Match same height as the footer --></div>
+        <div id="footer">
+            <footer>
+              <div id="footerBtm">
+                <ul>
+                  <li><a href="http://www.att.com/gen-mobile/privacy-policy?pid=2506" data-transition="slide">PRIVACY</a></li>
+                  <li><a href="http://www.att.com/gen-mobile/general?pid=11561" data-transition="slide">TERMS OF USE</a></li>
+                </ul>
+                <p class="clearIt wrapTxt fs10 white">
+                    <a href="http://www.att.com/gen-mobile/privacy-policy?pid=2587">&copy; 2012 AT&amp;T Intellectual Property.</a> 
+                    <span class="gray6">All rights reserved.</span>
+                </p>
+              </div>
+            </footer>
+        </div>
+        <!-- Footer End -->
+    </div>
+	<!--END Content-->
+    <!-- Start: Code for Dialog for this page-->
+    <!-- End:  Code for Dialog for this page -->
+	<script type="text/javascript" src="global/scripts/sandbox.js"></script>
+</body>
+</html>

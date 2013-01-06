@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* Dev Notes: 	This file contains the styles for any IE browser that is LTE (Less than or Equal to) IE8.*/
+.socialShareSprite {background: url("../images/att-ie-icons.png") no-repeat;}
+.mobileSprite { background: url("../images/mobileSpriteWindows.png") no-repeat;}
+.ui-icon-plus, .ui-icon-minus, .ui-icon-delete, .ui-icon-arrow-r,
+.ui-icon-arrow-l, .ui-icon-arrow-u, .ui-icon-arrow-d, .ui-icon-check,
+.ui-icon-gear, .ui-icon-refresh, .ui-icon-forward, .ui-icon-back,
+.ui-icon-grid, .ui-icon-star, .ui-icon-alert, .ui-icon-info, .ui-icon-home, .ui-icon-search, .ui-icon-searchfield:after, 
+.ui-icon-checkbox-off, .ui-icon-checkbox-on, .ui-icon-radio-off, .ui-icon-radio-on {background-image: url("../images/mobileSpriteWindows.png");}
+.pageDivider {background-position: 0 -136px; }
+.tagsIcon {background-position:0 -66px; width:120px; }
+.userIcon {background-position:0 -89px; width:120px; }
+.helpIcon {background-position:0 -112px; width:120px; }
+.goodIcon {background-position:-664px -80px; width:26px; height:26px; }
+.warningIcon {background-position:-612px -80px; width:26px; height:26px; }
+.badIcon {background-position:-638px -80px; width:26px; height:26px; }
+.bigBadIconWhite {background-position:-574px -68px; width:38px; height:38px; }
+.bigBadIcon {background-position:-536px -68px; width:38px; height:38px; }
+
+.ui-icon-plus {background-position: 2px -45px;}
+.ui-icon-minus {background-position: -20px -45px;}
+/* delete/close */
+.ui-icon-delete {background-position: -78px -45px;}
+
+/* arrows */
+.ui-icon-arrow-r {background-position: -112px -48px;}
+.ui-icon-arrow-l {background-position: -144px -48px;}
+.ui-icon-arrow-u {background-position: -180px -48px;}
+.ui-icon-arrow-d {background-position: -216px -48px;}
+
+/* misc */
+.ui-icon-check {background-position: -252px -48px;}
+.ui-icon-gear {background-position: -288px -48px;}
+.ui-icon-refresh {background-position: -324px -48px;}
+.ui-icon-forward {background-position: -360px -48px;}
+.ui-icon-back {background-position:-396px -48px;}
+.ui-icon-grid {background-position: -432px -48px;}
+.ui-icon-star {background-position: -468px -48px;}
+.ui-icon-alert {background-position:-504px -48px;}
+.ui-icon-info {background-position:-540px -48px;}
+.ui-icon-home {background-position: -576px -48px;}
+.ui-icon-search {background-position: -612px -48px;}
+.ui-icon-checkbox-off {background-position:	-605px -45px}
+.ui-icon-checkbox-on {background-position: -573px -45px}
+.ui-icon-radio-off {background-position: -670px -45px;}
+.ui-icon-radio-on {background-position: -638px -45px;}
+
+.extraSprite {background: url("../images/extraSprite.png") no-repeat;}

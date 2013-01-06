@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.att.whatson"
+        version   = "2.1.0">
+  <name>What's ON</name>
+  <description> Find out what is going on in your area </description>
+  <author href="http://phonegap.com" email="dm835j@att.com"> CDE Mobile Core Team </author>
+  <icon src="images/Icon.png" width="57" height="57" />
+  <icon src="images/Icon-Small@2x.png" width="58" height="58" />
+  <icon src="images/Icon-72.png" gap:platform="ios" width="72" height="72" />
+  <icon src="images/Icon@2x.png" width="114" height="114" />
+  <gap:splash src="images/splash.png" />
+  <gap:splash src="images/Default_at_2x.png" width="640" height="960" />
+  <gap:splash src="images/Default-568h@2x.png" gap:platform="ios" width="640" height="1136"/>
+  <feature name="http://api.phonegap.com/1.0/device" />
+  <preference name="phonegap-version" value="2.1.0" />
+  <!--   
+Enable to lock the Portrait only view 
+ <preference name="orientation"      value="portrait" />
+-->
+
+  <preference name="target-device"    value="universal" />
+  <preference name="fullscreen"       value="false" />
+  <preference name="webviewbounce"    value="false" />
+  <feature name="http://plugins.phonegap.com/ChildBrowser/3.0.4" />
+  <gap:plugin name="ChildBrowser" />
+</widget>
