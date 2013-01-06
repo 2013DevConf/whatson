@@ -4,6 +4,7 @@ public class Request {
 	String constraint = null;
 	String latitude = null;
 	String longitude = null;
+	String radius = null;
 
 	public String getConstraint() {
 		return constraint;
@@ -29,4 +30,14 @@ public class Request {
 		this.longitude = longitude;
 	}
 
+	public String getRadius() {
+		if (radius == null) {
+			radius = "100";
+		}
+		return radius;
+	}
+
+	public void setRadius(String radius) {
+		this.radius = radius;
+	}	
 }

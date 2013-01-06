@@ -29,7 +29,13 @@ public class FlickrService {
 		} catch (UnsupportedEncodingException e1) {
 			return null;
 		}
-		String yqlResponse = httpAdapter.sendRequest(url);
+		
+		String yqlResponse = null;
+		try {
+		    yqlResponse = httpAdapter.sendRequest(url);
+		} catch (RuntimeException e) {
+			return null;
+		}
 		YQLResponse yQLResultQueryField = null;
 
 		try {
