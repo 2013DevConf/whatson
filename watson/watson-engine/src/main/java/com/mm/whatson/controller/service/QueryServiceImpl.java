@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mm.whatson.controller.Request;
@@ -17,10 +18,10 @@ import com.mm.whatson.controller.reversegeo.ReverseGeoLookupService;
 @Service
 public class QueryServiceImpl implements QueryService {
 
-	@Inject
+	@Autowired
 	ReverseGeoLookupService reverseGeoLookupService;
 
-	@Inject
+	@Autowired
 	HttpAdapter httpAdapter;
 	
     final private ObjectMapper objectMapper = new ObjectMapper();
@@ -37,6 +38,7 @@ public class QueryServiceImpl implements QueryService {
 		YQLResponse yQLResultQueryField = null;
 
         try {
+        	System.out.println(yqlResponse);
         	yQLResultQueryField = objectMapper.readValue(yqlResponse, YQLResponse.class);
         } catch (Exception e) {
             throw new RuntimeException(e);

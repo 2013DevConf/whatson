@@ -13,6 +13,11 @@
 	<name>Watson Engine</name>
 	<packaging>war</packaging>
 
+	<properties>
+		<wtpversion>2.0</wtpversion>
+	</properties>
+
+
 	<dependencies>
 
 		<!-- Spring -->

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mm.whatson.controller.httpclient.HttpAdapter;
@@ -13,7 +14,7 @@ import com.mm.whatson.controller.httpclient.HttpAdapter;
 @Service
 public class ReverseGeoLookupService {
 
-	@Inject
+	@Autowired
 	HttpAdapter httpAdapter;
 	
     final private ObjectMapper objectMapper = new ObjectMapper();
