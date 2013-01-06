@@ -15,6 +15,9 @@ public class Event {
 	String description = null;
 	String ticket_url = null;
 	String image = null;
+	String category = null;
+	String venue_address = null;
+	String venue_city = null;
 
 	public String getVenue_name() {
 		return venue_name;
@@ -22,6 +25,30 @@ public class Event {
 
 	public void setVenue_name(String venue_name) {
 		this.venue_name = venue_name;
+	}
+	
+	public String getTicket_url() {
+		return ticket_url;
+	}
+
+	public void setTicket_url(String ticket_url) {
+		this.ticket_url = ticket_url;
+	}
+
+	public String getVenue_address() {
+		return venue_address;
+	}
+
+	public void setVenue_address(String venue_address) {
+		this.venue_address = venue_address;
+	}
+
+	public String getVenue_city() {
+		return venue_city;
+	}
+
+	public void setVenue_city(String venue_city) {
+		this.venue_city = venue_city;
 	}
 
 	public String getName() {
@@ -46,10 +73,6 @@ public class Event {
 
 	public void setTicket_price(String ticket_price) {
 		this.ticket_price = ticket_price;
-	}
-
-	public String getCategory_id() {
-		return category_id;
 	}
 
 	public void setCategory_id(String category_id) {
@@ -110,5 +133,13 @@ public class Event {
 			}
 		}
 		return false;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 }
