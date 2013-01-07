@@ -2,6 +2,7 @@ package com.mm.whatson.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,18 +36,37 @@ public class WhatsOnController {
 	
 	@RequestMapping(value = "/token")
 	@ResponseBody
-	public AttSecurityToken getToken(final Request request) {
+	public AttSecurityToken getToken() {
 		AttSecurityToken token = accessTokenService.getToken();
 		System.out.println(token.getAccess_token());
 		return token;
 	}
-	@RequestMapping(value = "/translate")
+	
+	@RequestMapping(value = "/translateCalifornia")
 	@ResponseBody
-	public Object getTranslation(final Request request) {
+	public Object getTranslationOld() {
 		AttSecurityToken token = accessTokenService.getToken();
 		Object obj = speechToTextService.getText(token);
 		System.out.println(obj);
 		return obj;
 	}
-	
+
+	@RequestMapping(value = "/translateAMR", method=RequestMethod.POST)
+	@ResponseBody
+	public Object getTranslationAMR(@RequestBody final String body) {
+		AttSecurityToken token = accessTokenService.getToken();
+		Object obj = speechToTextService.getText(token, body, "audio/amr");
+		System.out.println(obj);
+		return obj;
+	}
+
+	@RequestMapping(value = "/translateWAV", method=RequestMethod.POST)
+	@ResponseBody
+	public Object getTranslationWAV(@RequestBody final String body) {
+		AttSecurityToken token = accessTokenService.getToken();
+		Object obj = speechToTextService.getText(token, body, "audio/wav");
+		System.out.println(obj);
+		return obj;
+	}
+
 }
